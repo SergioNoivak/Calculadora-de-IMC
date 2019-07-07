@@ -1,15 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 
 void main(List<String> args) {
   
-
-    runApp(MaterialApp(
+      runApp(MaterialApp(
       title:"calculadora de IMC",
       home: Home()));
-
-
 }
 
 
@@ -18,6 +16,22 @@ class Home extends StatefulWidget {
 _HomeState createState() => _HomeState();
 }
 class _HomeState extends State<Home> {
+
+TextEditingController controladorKg = TextEditingController();
+TextEditingController controladorCm = TextEditingController();
+String textoInformativo = "";
+
+void resetar(){
+
+
+  this.controladorCm.text = "";
+  this.controladorKg.text = "";
+  this.textoInformativo="informe seus dados";
+
+}
+
+
+
 @override
 Widget build(BuildContext context) {
 return Scaffold(
@@ -28,7 +42,7 @@ return Scaffold(
           actions: <Widget>[
               IconButton(
                 icon: Icon(Icons.refresh) ,
-                onPressed: (){},
+                onPressed: resetar ,
               )
           ],
         ),
@@ -51,7 +65,7 @@ return Scaffold(
                             ),
                             
                          textAlign: TextAlign.center,
-                        
+                          controller: controladorCm,     
                   ),
                                 TextField(keyboardType: TextInputType.number,
                             decoration: InputDecoration(
@@ -61,14 +75,16 @@ return Scaffold(
                             ),
                             
                          textAlign: TextAlign.center,
-                        
+                        controller: controladorKg
                   ),
                   
                   Container(child:RaisedButton(
                     onPressed: (){},
                     child: Text("Calcular",style: TextStyle(color: Colors.white,fontSize: 15.0)),
                     color: Colors.green),
-                    height: 50.0,)
+                    height: 50.0,),
+                Text("$textoInformativo")                                    
+                  
                   
             ],
 
