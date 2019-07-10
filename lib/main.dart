@@ -120,7 +120,9 @@ return Scaffold(
                           }
                   ),
                   
-                  Container(child:RaisedButton(
+                  Container(
+                    
+                    child:RaisedButton(
                     onPressed:(){
 
                       if(this._formKey.currentState.validate())
@@ -131,8 +133,11 @@ return Scaffold(
                     child: Text("Calcular",style: TextStyle(color: Colors.white,fontSize: 15.0)),
                     color: Colors.green),
                     height: 50.0,),
-                Text("$textoInformativo")                                    
+                Container(  
+                  child : Padding(padding: EdgeInsets.all(10), child:Text("$textoInformativo",style: TextStyle(color: Colors.blue),), ),       
+                  alignment: Alignment.center,
                   
+                )
                   
             ],
 
